@@ -9,15 +9,26 @@ See http://toolbelt.rtfd.org/ for documentation
 :license: Apache v2.0, see LICENSE for more details
 """
 
+from .adapters import SSLAdapter, SourceAddressAdapter
+from .auth import GuessAuth
+from .multipart import (
+    MultipartEncoder, MultipartEncoderMonitor, MultipartDecoder,
+    ImproperBodyPartContentException, NonMultipartContentTypeException
+    )
+from .streaming_iterator import StreamingIterator
+from .utils.user_agent import user_agent
+
 __title__ = 'requests-toolbelt'
 __authors__ = 'Ian Cordasco, Cory Benfield'
 __license__ = 'Apache v2.0'
 __copyright__ = 'Copyright 2014 Ian Cordasco, Cory Benfield'
-__version__ = '0.2.0'
+__version__ = '0.4.0'
 __version_info__ = tuple(int(i) for i in __version__.split('.'))
 
-from .multipart import MultipartEncoder
-from .ssl_adapter import SSLAdapter
-from .user_agent import user_agent
-
-__all__ = [MultipartEncoder, SSLAdapter, user_agent]
+__all__ = [
+    'GuessAuth', 'MultipartEncoder', 'MultipartEncoderMonitor',
+    'MultipartDecoder', 'SSLAdapter', 'SourceAddressAdapter',
+    'StreamingIterator', 'user_agent', 'ImproperBodyPartContentException',
+    'NonMultipartContentTypeException', '__title__', '__authors__',
+    '__license__', '__copyright__', '__version__', '__version_info__',
+]
